@@ -1,0 +1,9 @@
+.List {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  column-gap: 5rem;
+  row-gap: 2.5rem;
+  justify-items: center;
+  align-items: center;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Card.css";
 
 interface Props {
   book: {
@@ -30,7 +31,7 @@ const Card: React.FC<Props> = ({ book }) => {
       </div>
     );
   };
-  return <div>{renderCard()}</div>;
+  return <div className="Card">{renderCard()}</div>;
 };
 
 export default Card;

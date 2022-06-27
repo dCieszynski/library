@@ -1,5 +1,6 @@
 import React from "react";
 import { State as Props } from "../App";
+import "../styles/List.css";
 import Card from "./Card";
 
 const List: React.FC<Props> = ({ books }) => {
@@ -9,7 +10,7 @@ const List: React.FC<Props> = ({ books }) => {
     });
   };
 
-  return <div>{renderList()}</div>;
+  return <div className="List">{renderList()}</div>;
 };
 
 export default List;

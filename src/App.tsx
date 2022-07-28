@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Hamburger from "./components/Hamburger";
 import Navbar from "./components/Navbar";
+import Card from "./components/Card";
 
 interface Data {
   count: number;
@@ -9,8 +10,12 @@ interface Data {
   results: Book[];
 }
 
-interface Book {
-  authors: Author[];
+export interface Book {
+  authors: {
+    name: string;
+    birth_year: number;
+    death_year: number;
+  }[];
   bookshelves: string[];
   copyright: boolean;
   download_count: number;
@@ -31,12 +36,6 @@ interface Book {
   translators: string[];
 }
 
-interface Author {
-  name: string;
-  birth_year: number;
-  death_year: number;
-}
-
 function App() {
   const getData = async (): Promise<void> => {
     const res = await fetch("https://gutendex.com/books");
@@ -46,16 +45,20 @@ function App() {
 
   const [data, setData] = useState<Data | null>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-  const [contentMargin, setContentMargin] = useState("0");
+  const [contentMargin, setContentMargin] = useState("ml-[72px]");
 
   useEffect(() => {
     getData();
   }, []);
 
   useEffect(() => {
-    contentMargin === "[72px]"
-      ? setContentMargin("0")
-      : setContentMargin("[72px]");
+    console.log(data);
+  }, [data]);
+
+  useEffect(() => {
+    contentMargin === "ml-[72px]"
+      ? setContentMargin("ml-0")
+      : setContentMargin("ml-[72px]");
   }, [isHamburgerOpen]);
 
   return (
@@ -65,9 +68,11 @@ function App() {
         setIsHamburgerOpen={setIsHamburgerOpen}
       ></Hamburger>
       <Navbar isHamburgerOpen={isHamburgerOpen}></Navbar>
-      <div className={`ml-${contentMargin} mt-[72px]`}>
+      <div
+        className={`${contentMargin} mt-[72px] flex flex-col items-center gap-3`}
+      >
         {data?.results.map((book) => {
-          return <div>{book.title}</div>;
+          return <Card book={book}></Card>;
         })}
       </div>
     </div>

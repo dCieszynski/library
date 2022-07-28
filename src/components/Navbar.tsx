@@ -9,19 +9,14 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ isHamburgerOpen }) => {
-  const [leftPos, setLeftPos] = useState("16");
+  const [leftPos, setLeftPos] = useState("left-0");
 
   useEffect(() => {
-    console.log("Left pos before: ", leftPos);
-    console.log("Is open: ", isHamburgerOpen);
-    leftPos === "[-80px]" ? setLeftPos("8") : setLeftPos("[-80px]");
-    console.log("Left pos after ", leftPos);
+    leftPos === "-left-20" ? setLeftPos("left-0") : setLeftPos("-left-20");
   }, [isHamburgerOpen]);
 
   return (
-    <div
-      className={`fixed top-16 left-${leftPos} w-16 flex flex-col items-center`}
-    >
+    <div className={`fixed top-16 ${leftPos} w-16 flex flex-col items-center`}>
       <div className="relative flex flex-col gap-2">
         <IconContext.Provider value={{ className: "w-8 h-8" }}>
           <div className="w-16 h-16 flex flex-col justify-center items-center">

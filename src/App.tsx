@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Hamburger from "./components/Hamburger";
+import Navbar from "./components/Navbar";
 
 interface Data {
   count: number;
@@ -43,16 +45,31 @@ function App() {
   };
 
   const [data, setData] = useState<Data | null>(null);
+  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+  const [contentMargin, setContentMargin] = useState("0");
 
   useEffect(() => {
     getData();
   }, []);
 
+  useEffect(() => {
+    contentMargin === "[72px]"
+      ? setContentMargin("0")
+      : setContentMargin("[72px]");
+  }, [isHamburgerOpen]);
+
   return (
     <div>
-      {data?.results.map((book) => {
-        return <div>{book.title}</div>;
-      })}
+      <Hamburger
+        isHamburgerOpen={isHamburgerOpen}
+        setIsHamburgerOpen={setIsHamburgerOpen}
+      ></Hamburger>
+      <Navbar isHamburgerOpen={isHamburgerOpen}></Navbar>
+      <div className={`ml-${contentMargin} mt-[72px]`}>
+        {data?.results.map((book) => {
+          return <div>{book.title}</div>;
+        })}
+      </div>
     </div>
   );
 }

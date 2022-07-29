@@ -37,7 +37,7 @@ const Card: React.FC<Props> = ({ book }) => {
           }}
         >
           <div
-            className={`${display} absolute top-0 left-0 w-[200px] h-[280px] flex flex-col justify-center items-center gap-10 bg-[rgba(0,0,0,0.7)]`}
+            className={`${display} absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center gap-10 bg-[rgba(0,0,0,0.7)]`}
             onMouseLeave={() => setIsHover(false)}
           >
             <MdFavorite></MdFavorite>

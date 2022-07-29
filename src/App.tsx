@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Hamburger from "./components/Hamburger";
 import Navbar from "./components/Navbar";
-import Card from "./components/Card";
+import List from "./components/List";
 
-interface Data {
+export interface Data {
   count: number;
   next: string | null;
   previous: string | null;
@@ -71,9 +71,7 @@ function App() {
       <div
         className={`${contentMargin} mt-[72px] flex flex-col items-center gap-3`}
       >
-        {data?.results.map((book) => {
-          return <Card book={book}></Card>;
-        })}
+        <List data={data}></List>
       </div>
     </div>
   );

@@ -68,9 +68,7 @@ function App() {
         setIsHamburgerOpen={setIsHamburgerOpen}
       ></Hamburger>
       <Navbar isHamburgerOpen={isHamburgerOpen}></Navbar>
-      <div
-        className={`${contentMargin} mt-[72px] flex flex-col items-center gap-3`}
-      >
+      <div className={`${contentMargin} mt-[72px]`}>
         <List data={data}></List>
       </div>
     </div>

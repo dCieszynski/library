@@ -7,7 +7,7 @@ interface Props {
 
 const List: React.FC<Props> = ({ data }) => {
   return (
-    <div>
+    <div className="flex flex-col items-center gap-3">
       {data?.results.map((book) => {
         return <Card book={book}></Card>;
       })}

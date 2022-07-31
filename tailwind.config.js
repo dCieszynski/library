@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        // prettier-ignore
+        'list': "repeat(auto-fill, minmax(200px, 1fr))",
+      },
+    },
   },
   plugins: [],
 };

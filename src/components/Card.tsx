@@ -27,9 +27,14 @@ const Card: React.FC<Props> = ({ book }) => {
   }, [isHover]);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative">
-        <img src={img} alt="" onMouseEnter={() => setIsHover(true)} />
+    <div className="flex flex-col h-[400px] max-w-[200px]">
+      <div className="relative self-center">
+        <img
+          src={img}
+          alt=""
+          className="max-h-[280px]"
+          onMouseEnter={() => setIsHover(true)}
+        />
         <IconContext.Provider
           value={{
             className:
@@ -49,8 +54,8 @@ const Card: React.FC<Props> = ({ book }) => {
           </div>
         </IconContext.Provider>
       </div>
-      <div>{book.title}</div>
-      <div>{book.authors[0].name}</div>
+      <div className="text-sm text-slate-700">{book.title}</div>
+      <div className="text-xs text-slate-500">by {book.authors[0].name}</div>
     </div>
   );
 };

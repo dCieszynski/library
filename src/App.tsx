@@ -57,7 +57,7 @@ function App() {
 
   useEffect(() => {
     contentMargin === "ml-[72px]"
-      ? setContentMargin("ml-0")
+      ? setContentMargin("ml-4")
       : setContentMargin("ml-[72px]");
   }, [isHamburgerOpen]);
 
@@ -68,7 +68,7 @@ function App() {
         setIsHamburgerOpen={setIsHamburgerOpen}
       ></Hamburger>
       <Navbar isHamburgerOpen={isHamburgerOpen}></Navbar>
-      <div className={`${contentMargin} mt-[72px]`}>
+      <div className={`${contentMargin} mt-[72px] mr-4`}>
         <List data={data}></List>
       </div>
     </div>

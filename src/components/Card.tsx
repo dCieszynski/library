@@ -34,6 +34,7 @@ const Card: React.FC<Props> = ({ book }) => {
           alt=""
           className="max-h-[280px]"
           onMouseEnter={() => setIsHover(true)}
+          onTouchStart={() => setIsHover(true)}
         />
         <IconContext.Provider
           value={{
@@ -44,12 +45,28 @@ const Card: React.FC<Props> = ({ book }) => {
           <div
             className={`${display} absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center gap-10 bg-[rgba(0,0,0,0.7)]`}
             onMouseLeave={() => setIsHover(false)}
+            onTouchEnd={() => setIsHover(false)}
           >
             <MdFavorite></MdFavorite>
             <div className="flex w-full text-white justify-around">
-              <div className="cursor-pointer hover:underline">Online</div>
-              <div className="cursor-pointer hover:underline">Epub</div>
-              <div className="cursor-pointer hover:underline">Mobi</div>
+              <a
+                href={book.formats["text/plain; charset=utf-8"]}
+                className="cursor-pointer hover:underline"
+              >
+                Html
+              </a>
+              <a
+                href={book.formats["application/epub+zip"]}
+                className="cursor-pointer hover:underline"
+              >
+                Epub
+              </a>
+              <a
+                href={book.formats["application/x-mobipocket-ebook"]}
+                className="cursor-pointer hover:underline"
+              >
+                Mobi
+              </a>
             </div>
           </div>
         </IconContext.Provider>

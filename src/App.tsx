@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Hamburger from "./components/Hamburger";
 import Navbar from "./components/Navbar";
 import List from "./components/List";
+import Pagination from "./components/Pagination";
 
 export interface Data {
   count: number;
@@ -62,7 +63,7 @@ function App() {
   }, [isHamburgerOpen]);
 
   return (
-    <div>
+    <div className="pb-5">
       <Hamburger
         isHamburgerOpen={isHamburgerOpen}
         setIsHamburgerOpen={setIsHamburgerOpen}
@@ -71,6 +72,7 @@ function App() {
       <div className={`${contentMargin} mt-[72px] mr-4`}>
         <List data={data}></List>
       </div>
+      <Pagination data={data} setData={setData}></Pagination>
     </div>
   );
 }

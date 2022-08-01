@@ -19,8 +19,7 @@ const Card: React.FC<Props> = ({ book }) => {
 
   useEffect(() => {
     getMediumImage(book);
-    console.log(img);
-  }, []);
+  }, [book]);
 
   useEffect(() => {
     display !== "hidden" ? setDisplay("hidden") : setDisplay("block");
@@ -72,7 +71,9 @@ const Card: React.FC<Props> = ({ book }) => {
         </IconContext.Provider>
       </div>
       <div className="text-sm text-slate-700">{book.title}</div>
-      <div className="text-xs text-slate-500">by {book.authors[0].name}</div>
+      <div className="text-xs text-slate-500">
+        by {book.authors[0] ? book.authors[0].name : "author unknown"}
+      </div>
     </div>
   );
 };

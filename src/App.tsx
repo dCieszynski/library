@@ -3,6 +3,7 @@ import Hamburger from "./components/Hamburger";
 import Navbar from "./components/Navbar";
 import List from "./components/List";
 import Pagination from "./components/Pagination";
+import Search from "./components/Search";
 
 export interface Data {
   count: number;
@@ -69,6 +70,7 @@ function App() {
         setIsHamburgerOpen={setIsHamburgerOpen}
       ></Hamburger>
       <Navbar isHamburgerOpen={isHamburgerOpen}></Navbar>
+      <Search></Search>
       <div className={`${contentMargin} mt-[72px] mr-4`}>
         <List data={data}></List>
       </div>

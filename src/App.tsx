@@ -70,7 +70,7 @@ function App() {
         setIsHamburgerOpen={setIsHamburgerOpen}
       ></Hamburger>
       <Navbar isHamburgerOpen={isHamburgerOpen}></Navbar>
-      <Search></Search>
+      <Search setData={setData}></Search>
       <div className={`${contentMargin} mt-[72px] mr-4`}>
         <List data={data}></List>
       </div>

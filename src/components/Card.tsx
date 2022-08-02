@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Book } from "../App";
 import { MdFavorite } from "react-icons/md";
 import { IconContext } from "react-icons";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 interface Props {
   book: Book;
@@ -46,7 +47,11 @@ const Card: React.FC<Props> = ({ book }) => {
             onMouseLeave={() => setIsHover(false)}
             onTouchEnd={() => setIsHover(false)}
           >
-            <MdFavorite></MdFavorite>
+            <MdFavorite
+              onClick={() =>
+                localStorage.setItem(`${book.id}`, JSON.stringify(book))
+              }
+            ></MdFavorite>
             <div className="flex w-full text-white justify-around">
               <a
                 href={book.formats["text/plain; charset=utf-8"]}

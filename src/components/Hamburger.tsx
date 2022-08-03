@@ -11,7 +11,7 @@ const Hamburger: React.FC<Props> = ({
   setIsHamburgerOpen,
 }) => {
   return (
-    <div className="fixed top-0 z-50 bg-white rounded-xl">
+    <div>
       {" "}
       <IconContext.Provider value={{ className: "w-8 h-8" }}>
         <div

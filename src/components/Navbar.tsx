@@ -1,10 +1,8 @@
 import { ImBooks } from "react-icons/im";
-import { IoIosBook } from "react-icons/io";
 import { MdFavorite } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 import { IconContext } from "react-icons";
 import { Data, Book } from "../App";
-import { setConstantValue } from "typescript";
 
 interface Props {
   isHamburgerOpen: boolean;
@@ -48,10 +46,6 @@ const Navbar: React.FC<Props> = ({
     <div className={`fixed top-16 ${leftPos} w-16 flex flex-col items-center`}>
       <div className="relative flex flex-col gap-2">
         <IconContext.Provider value={{ className: "w-8 h-8" }}>
-          <div className="w-16 h-16 flex flex-col justify-center items-center cursor-pointer">
-            <IoIosBook></IoIosBook>
-            <span className="text-center text-[10px]">Now reading</span>
-          </div>
           <div
             className="w-16 h-16 flex flex-col justify-center items-center cursor-pointer"
             onClick={getData}

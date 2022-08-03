@@ -19,8 +19,9 @@ const Search: React.FC<Props> = ({ setData }) => {
   };
 
   return (
-    <div className="fixed top-0 right-0 z-50 h-16 pr-8 flex items-center justify-center bg-white">
+    <div className="pr-4 flex items-center justify-center">
       <input
+        className="pl-2 max-w-[150px]"
         type="text"
         placeholder="Search"
         value={searchInput}

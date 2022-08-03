@@ -67,17 +67,19 @@ function App() {
 
   return (
     <div className="pb-5">
-      <Hamburger
-        isHamburgerOpen={isHamburgerOpen}
-        setIsHamburgerOpen={setIsHamburgerOpen}
-      ></Hamburger>
+      <div className="w-full fixed top-0 z-50 h-16 flex justify-between bg-white">
+        <Hamburger
+          isHamburgerOpen={isHamburgerOpen}
+          setIsHamburgerOpen={setIsHamburgerOpen}
+        ></Hamburger>
+        <Search setData={setData}></Search>
+      </div>
       <Navbar
         isHamburgerOpen={isHamburgerOpen}
         setData={setData}
         setFavourites={setFavourites}
         setNav={setNav}
       ></Navbar>
-      <Search setData={setData}></Search>
       <div className={`${contentMargin} mt-[72px] mr-4`}>
         <List data={nav === "collection" ? data?.results : favourites}></List>
       </div>

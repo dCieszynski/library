@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import List from "./components/List";
 import Pagination from "./components/Pagination";
 import Search from "./components/Search";
-import useLocalStorage from "./hooks/useLocalStorage";
 
 export interface Data {
   count: number;
@@ -49,6 +48,8 @@ function App() {
   const [data, setData] = useState<Data | null>(null);
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [contentMargin, setContentMargin] = useState("ml-[72px]");
+  const [favourites, setFavourites] = useState<Book[] | null>([]);
+  const [nav, setNav] = useState("collection");
 
   useEffect(() => {
     getData();
@@ -70,10 +71,15 @@ function App() {
         isHamburgerOpen={isHamburgerOpen}
         setIsHamburgerOpen={setIsHamburgerOpen}
       ></Hamburger>
-      <Navbar isHamburgerOpen={isHamburgerOpen} setData={setData}></Navbar>
+      <Navbar
+        isHamburgerOpen={isHamburgerOpen}
+        setData={setData}
+        setFavourites={setFavourites}
+        setNav={setNav}
+      ></Navbar>
       <Search setData={setData}></Search>
       <div className={`${contentMargin} mt-[72px] mr-4`}>
-        <List data={data}></List>
+        <List data={nav === "collection" ? data?.results : favourites}></List>
       </div>
       <Pagination data={data} setData={setData}></Pagination>
     </div>

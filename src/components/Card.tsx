@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Book } from "../App";
 import { MdFavorite } from "react-icons/md";
 import { IconContext } from "react-icons";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 interface Props {
   book: Book;
